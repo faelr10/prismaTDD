@@ -9,6 +9,12 @@ class UserService {
         const user = await userRepository.create(name)
         return user
     }
+
+    async findAll():Promise<object>{
+        const userRepository = new UserRepository()
+        const result = await userRepository.findAll()
+        return result
+    }
    
 }
 

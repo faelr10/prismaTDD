@@ -11,6 +11,11 @@ class UserRepository{
         return user
     }
 
+    async findAll():Promise<object>{
+        const result = await prismaClient.user.findMany()
+        return result
+    }
+
     async delete(id:string){
         await prismaClient.user.delete({
             where: {
