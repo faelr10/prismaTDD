@@ -1,9 +1,10 @@
 import { prismaClient } from "../../database/prismaClient"
+import prisma from '../../../client'
 
 class UserRepository{
 
     async create(name:string){
-        const user = await prismaClient.user.create({
+        const user = await prisma.user.create({
             data:{
                 name
             }
@@ -12,7 +13,7 @@ class UserRepository{
     }
 
     async findAll():Promise<object>{
-        const result = await prismaClient.user.findMany()
+        const result = await prisma.user.findMany()
         return result
     }
 
